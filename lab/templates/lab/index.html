@@ -1,4 +1,4 @@
-{% extends "lab/base.html" %}
+{% extends "base.html" %}
 
 {% block title %}
     Index page
@@ -6,7 +6,6 @@
 
 {% block content %}
 <div class="container">
-    <p>{{ message }}</p>
-    <a href="{% url 'lab:another' %}">Link to another page</a>
+    <a href="{% url 'lab:engineer-list' %}">Link to Engineers</a>
 </div>
 {% endblock content %}
