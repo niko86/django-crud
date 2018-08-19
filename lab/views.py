@@ -10,7 +10,7 @@ from lab.forms import EngineerForm
 class IndexView(View):
 
     def get(self, request):
-        return render(request, 'lab/index.html', {'message': 'Hello World'})
+        return render(request, 'lab/index.html')
 
 # Engineer Views
 
