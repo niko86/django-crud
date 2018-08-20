@@ -1,7 +1,9 @@
-from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.urls import reverse_lazy
+
 
 from atterberg.models import AttModel
 from atterberg.forms import AtterbergForm
@@ -39,5 +41,10 @@ class AtterbergList(ListView):
     template_name = 'atterberg/atterberg_list.html'
     context_object_name = 'atterbergs'
 
-#class AtterbergDetail(DetailView):
-#    model = AttModel
+def download_xml(request, pk):
+    att_test = get_object_or_404(AttModel, pk=pk)
+    xml_data = AttModel.generate_xml(att_test) # Have to force object into dictionary
+    response = HttpResponse(xml_data, content_type="application/xml")
+    response['Content-Disposition'] = 'attachment; filename=test.xml'
+    return response
+    #return HttpResponse(xml_data, content_type="application/xml")
