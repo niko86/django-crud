@@ -9,7 +9,7 @@ from atterberg.models import AttModel
 class AtterbergForm(forms.ModelForm):
     class Meta:
         model = AttModel
-        fields = ('att_method', 'check_cal', 'check_tip', 'check_vis', 'balance', 'preparation_method')
+        fields = ('att_method', 'check_cal', 'check_tip', 'check_vis', 'balance', 'preparation_method', 'oven', 'oven_temp')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
