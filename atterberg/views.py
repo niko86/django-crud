@@ -45,6 +45,6 @@ def download_xml(request, pk):
     att_test = get_object_or_404(AttModel, pk=pk)
     xml_data = AttModel.generate_xml(att_test) # Have to force object into dictionary
     response = HttpResponse(xml_data, content_type="application/xml")
-    response['Content-Disposition'] = 'attachment; filename=test.xml'
+    response['Content-Disposition'] = f'attachment; filename={att_test.identifier}.xml'
     return response
     #return HttpResponse(xml_data, content_type="application/xml")

@@ -8,7 +8,7 @@
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Balance</th>
+            <th scope="col">Test ID</th>
             <th scope="col">Date</th>
             <th scope="col">Method</th>
             <th scope="col"></th>
@@ -18,7 +18,7 @@
         {% for atterberg in atterbergs %}
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
-            <td><a href="{% url 'atterberg:atterberg-edit' atterberg.id %}">{{ atterberg.balance }}</a></td>
+            <td><a href="{% url 'atterberg:atterberg-edit' atterberg.id %}">{{ atterberg.identifier }}</a></td>
             <td>{{ atterberg.test_date }}</td>
             <td>{{ atterberg.get_preparation_method_display }}</td>
             <td>
