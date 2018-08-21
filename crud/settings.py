@@ -131,3 +131,7 @@ STATIC_URL = '/static/'
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())

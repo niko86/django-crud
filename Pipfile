@@ -9,6 +9,7 @@ django = "*"
 django-crispy-forms = "*"
 lxml = "*"
 django-widget-tweaks = "*"
+django-heroku = "*"
 
 [dev-packages]
 "autopep8" = "*"
