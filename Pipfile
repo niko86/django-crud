@@ -8,6 +8,7 @@ djangorestframework = "*"
 django = "*"
 django-crispy-forms = "*"
 lxml = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 "autopep8" = "*"

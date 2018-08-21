@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'lab',
     'atterberg',
     'crispy_forms',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [

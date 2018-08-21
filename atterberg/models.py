@@ -49,7 +49,7 @@ class AttModel(models.Model):
     # Model fields
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    identifier = models.CharField(verbose_name='Enter project number, location id and depth', max_length=64)
+    identifier = models.CharField(verbose_name='Test identifier', max_length=64)
     att_method = models.CharField(verbose_name='Test method', max_length=3, choices=ATT_METHOD_CHOICES, default=ATT4P)
     check_cal = models.BooleanField(verbose_name='Equipment calibrations checked', blank=False, default=False)
     check_tip = models.BooleanField(verbose_name='Cone tip check complete', blank=False, default=False)
@@ -62,13 +62,6 @@ class AttModel(models.Model):
     oven_temp = models.IntegerField(verbose_name='Oven temperature (degrees celcius)', blank=True)
     sieve_total = models.DecimalField(verbose_name='Total mass before sieving (grams)', max_digits=6, decimal_places=2, blank=True)
     sieve_retained = models.DecimalField(verbose_name='Mass retained on 425um sieve (grams)', max_digits=6, decimal_places=2, blank=True)
-    ll1_pene_1 = models.DecimalField(verbose_name='Liquid limit 1: Penetration 1 (mm)', max_digits=3, decimal_places=1, blank=True)
-    ll1_pene_2 = models.DecimalField(verbose_name='Liquid limit 1: Penetration 2 (mm)', max_digits=3, decimal_places=1, blank=True)
-    ll1_con = models.CharField(verbose_name='Liquid limit 1: Container ID', max_length=8, blank=True)
-    ll1_con_mass = models.DecimalField(verbose_name='Liquid limit 1: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
-    ll1_wet_mass = models.DecimalField(verbose_name='Liquid limit 1: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
-    ll1_dry1_mass = models.DecimalField(verbose_name='Liquid limit 1:First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
-    ll1_dry2_mass = models.DecimalField(verbose_name='Liquid limit 1:Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
     pl1_con = models.CharField(verbose_name='Plastic limit 1: Container ID', max_length=8, blank=True)
     pl1_con_mass = models.DecimalField(verbose_name='Plastic limit 1: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
     pl1_wet_mass = models.DecimalField(verbose_name='Plastic limit 1: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
@@ -79,6 +72,38 @@ class AttModel(models.Model):
     pl2_wet_mass = models.DecimalField(verbose_name='Plastic limit 2: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
     pl2_dry1_mass = models.DecimalField(verbose_name='Plastic limit 2: First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
     pl2_dry2_mass = models.DecimalField(verbose_name='Plastic limit 2: Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll1_pene_1 = models.DecimalField(verbose_name='Liquid limit 1: Penetration 1 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll1_pene_2 = models.DecimalField(verbose_name='Liquid limit 1: Penetration 2 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll1_pene_3 = models.DecimalField(verbose_name='Liquid limit 1: Penetration 3 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll1_con = models.CharField(verbose_name='Liquid limit 1: Container ID', max_length=8, blank=True)
+    ll1_con_mass = models.DecimalField(verbose_name='Liquid limit 1: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll1_wet_mass = models.DecimalField(verbose_name='Liquid limit 1: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll1_dry1_mass = models.DecimalField(verbose_name='Liquid limit 1:First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll1_dry2_mass = models.DecimalField(verbose_name='Liquid limit 1:Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll2_pene_1 = models.DecimalField(verbose_name='Liquid limit 2: Penetration 1 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll2_pene_2 = models.DecimalField(verbose_name='Liquid limit 2: Penetration 2 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll2_pene_3 = models.DecimalField(verbose_name='Liquid limit 2: Penetration 3 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll2_con = models.CharField(verbose_name='Liquid limit 2: Container ID', max_length=8, blank=True)
+    ll2_con_mass = models.DecimalField(verbose_name='Liquid limit 2: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll2_wet_mass = models.DecimalField(verbose_name='Liquid limit 2: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll2_dry1_mass = models.DecimalField(verbose_name='Liquid limit 2:First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll2_dry2_mass = models.DecimalField(verbose_name='Liquid limit 2:Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll3_pene_1 = models.DecimalField(verbose_name='Liquid limit 3: Penetration 1 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll3_pene_2 = models.DecimalField(verbose_name='Liquid limit 3: Penetration 2 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll3_pene_3 = models.DecimalField(verbose_name='Liquid limit 3: Penetration 3 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll3_con = models.CharField(verbose_name='Liquid limit 3: Container ID', max_length=8, blank=True)
+    ll3_con_mass = models.DecimalField(verbose_name='Liquid limit 3: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll3_wet_mass = models.DecimalField(verbose_name='Liquid limit 3: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll3_dry1_mass = models.DecimalField(verbose_name='Liquid limit 3:First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll3_dry2_mass = models.DecimalField(verbose_name='Liquid limit 3:Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll4_pene_1 = models.DecimalField(verbose_name='Liquid limit 4: Penetration 1 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll4_pene_2 = models.DecimalField(verbose_name='Liquid limit 4: Penetration 2 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll4_pene_3 = models.DecimalField(verbose_name='Liquid limit 4: Penetration 3 (mm)', max_digits=3, decimal_places=1, blank=True)
+    ll4_con = models.CharField(verbose_name='Liquid limit 4: Container ID', max_length=8, blank=True)
+    ll4_con_mass = models.DecimalField(verbose_name='Liquid limit 4: Container mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll4_wet_mass = models.DecimalField(verbose_name='Liquid limit 4: Wet mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll4_dry1_mass = models.DecimalField(verbose_name='Liquid limit 4:First dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
+    ll4_dry2_mass = models.DecimalField(verbose_name='Liquid limit 4:Second dry mass (grams)', max_digits=6, decimal_places=2, blank=True)
 
     # Methods
 
@@ -90,12 +115,6 @@ class AttModel(models.Model):
                       "check_vis": "AppCheckVis", #
                       "balance": "BalanceNumber", #
                       "test_date": "DateOfTest", #
-                      "ll1_con_mass": "Ll1ContainerMass", #
-                      "ll1_wet_mass": "Ll1MassContainerAndWetSoil", #
-                      "ll1_dry1_mass": "Ll1FirstMassOfContainerAndDrySoil", #
-                      "ll1_dry2_mass": "Ll1SecondMassOfContainerAndDrySoil", #
-                      "ll1_pene_1": "Ll1Penetration1", #
-                      "ll1_pene_2": "Ll1Penetration2", #
                       "penetrometer": "LlPenetrometerNumber", #
                       "sieve_retained": "MassRetained425Sieve", #
                       "oven": "OvenNumber", # 
@@ -110,6 +129,34 @@ class AttModel(models.Model):
                       "pl2_dry2_mass": "Pl2SecondMassOfContainerAndDrySoil", #
                       "preparation_method": "PreparationMethodControl", #
                       "sieve_total": "TotalMassOfSample", #
+                      "ll1_pene_1": "Ll1Penetration1", #
+                      "ll1_pene_2": "Ll1Penetration2", #
+                      "ll1_pene_3": "Ll1Penetration3", #
+                      "ll1_con_mass": "Ll1ContainerMass", #
+                      "ll1_wet_mass": "Ll1MassContainerAndWetSoil", #
+                      "ll1_dry1_mass": "Ll1FirstMassOfContainerAndDrySoil", #
+                      "ll1_dry2_mass": "Ll1SecondMassOfContainerAndDrySoil", #
+                      "ll2_pene_1": "Ll2Penetration1", #
+                      "ll2_pene_2": "Ll2Penetration2", #
+                      "ll2_pene_3": "Ll2Penetration3", #
+                      "ll2_con_mass": "Ll2ContainerMass", #
+                      "ll2_wet_mass": "Ll2MassContainerAndWetSoil", #
+                      "ll2_dry1_mass": "Ll2FirstMassOfContainerAndDrySoil", #
+                      "ll2_dry2_mass": "Ll2SecondMassOfContainerAndDrySoil", #
+                      "ll3_pene_1": "ll3Penetration1", #
+                      "ll3_pene_2": "ll3Penetration2", #
+                      "ll3_pene_3": "ll3Penetration3", #
+                      "ll3_con_mass": "ll3ContainerMass", #
+                      "ll3_wet_mass": "ll3MassContainerAndWetSoil", #
+                      "ll3_dry1_mass": "ll3FirstMassOfContainerAndDrySoil", #
+                      "ll3_dry2_mass": "ll3SecondMassOfContainerAndDrySoil", #
+                      "ll4_pene_1": "ll4Penetration1", #
+                      "ll4_pene_2": "ll4Penetration2", #
+                      "ll4_pene_3": "ll4Penetration3", #
+                      "ll4_con_mass": "ll4ContainerMass", #
+                      "ll4_wet_mass": "ll4MassContainerAndWetSoil", #
+                      "ll4_dry1_mass": "ll4FirstMassOfContainerAndDrySoil", #
+                      "ll4_dry2_mass": "ll4SecondMassOfContainerAndDrySoil", #
                       }
         
         root = etree.Element("keylab", 

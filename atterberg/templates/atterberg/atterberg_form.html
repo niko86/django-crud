@@ -1,8 +1,350 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 
-{% load crispy_forms_tags %}
+{% load widget_tweaks %} 
 
 {% block content %}
-  <h1>Atterberg Test Form</h1>
-  {% crispy form %}
+<form method="post" novalidate>
+{% csrf_token %}
+<ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="pills-setup-tab" data-toggle="pill" href="#pills-setup" role="tab" aria-controls="pills-setup"
+      aria-selected="true">Setup</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" id="pills-sieving-tab" data-toggle="pill" href="#pills-sieving" role="tab" aria-controls="pills-sieving"
+        aria-selected="false">Sieving</a>
+    </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-plastic-tab" data-toggle="pill" href="#pills-plastic" role="tab" aria-controls="pills-plastic"
+      aria-selected="false">Plastic Limit</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="pills-liquid-tab" data-toggle="pill" href="#pills-liquid" role="tab" aria-controls="pills-liquid"
+      aria-selected="false">Liquid Limit</a>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-setup" role="tabpanel" aria-labelledby="pills-setup-tab">
+
+    <div class="form-group">
+      <label for="id_identifier">{{ form.identifier.label }}</label>
+      {{ form.identifier|add_class:"form-control"|attr:"placeholder:Enter test identifier..." }}
+      <small class="form-text text-muted">Project ID, Hole ID and depth will be used to generate the xml filename.</small>
+    </div>
+
+    <div class="form-group">
+      <label for="id_att_method">{{ form.att_method.label }}</label>
+      {{ form.att_method|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <div class="form-check form-check-inline">
+        {{ form.check_cal|add_class:"form-check-input" }}
+        <label class="form-check-label" for="id_check_cal">{{ form.check_cal.label }}</label>
+      </div>
+      <div class="form-check form-check-inline">
+        {{ form.check_tip|add_class:"form-check-input" }}
+        <label class="form-check-label" for="id_check_tip">{{ form.check_tip.label }}</label>
+      </div>
+      <div class="form-check form-check-inline">
+        {{ form.check_vis|add_class:"form-check-input" }}
+        <label class="form-check-label" for="id_check_vis">{{ form.check_vis.label }}</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="id_balance">{{ form.balance.label }}</label>
+      {{ form.balance|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+      <label for="id_oven">{{ form.oven.label }}</label>
+      {{ form.oven|add_class:"form-control" }}
+    </div>
+    
+    <div class="form-group">
+      <label for="id_oven_temp">{{ form.oven_temp.label }}</label>
+      {{ form.oven_temp|add_class:"form-control" }}
+    </div>
+    
+    <div class="form-group">
+      <label for="id_preparation_method">{{ form.preparation_method.label }}</label>
+      {{ form.preparation_method|add_class:"form-control" }}
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="pills-sieving" role="tabpanel" aria-labelledby="pills-sieving-tab">
+
+    <div class="form-group">
+      <label for="id_sieve_total">{{ form.sieve_total.label }}</label>
+      {{ form.sieve_total|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_sieve_retained">{{ form.sieve_retained.label }}</label>
+        {{ form.sieve_retained|add_class:"form-control" }}
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="pills-plastic" role="tabpanel" aria-labelledby="pills-plastic-tab">
+
+    <ul class="nav nav-tabs my-3" id="plTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="pl1-tab" data-toggle="tab" href="#pl1" role="tab" aria-controls="home" aria-selected="true">PL1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="pl2-tab" data-toggle="tab" href="#pl2" role="tab" aria-controls="profile" aria-selected="false">PL2</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="plTabContent">
+      <div class="tab-pane fade show active" id="pl1" role="tabpanel" aria-labelledby="pl1-tab">
+
+        <div class="form-group">
+            <label for="id_pl1_con">{{ form.pl1_con.label }}</label>
+            {{ form.pl1_con|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_pl1_con_mass">{{ form.pl1_con_mass.label }}</label>
+            {{ form.pl1_con_mass|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_pl1_wet_mass">{{ form.pl1_wet_mass.label }}</label>
+            {{ form.pl1_wet_mass|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_pl1_dry1_mass">{{ form.pl1_dry1_mass.label }}</label>
+            {{ form.pl1_dry1_mass|add_class:"form-control" }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_pl1_dry2_mass">{{ form.pl1_dry2_mass.label }}</label>
+            {{ form.pl1_dry2_mass|add_class:"form-control" }}
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade" id="pl2" role="tabpanel" aria-labelledby="pl2-tab">
+
+          <div class="form-group">
+              <label for="id_pl2_con">{{ form.pl2_con.label }}</label>
+              {{ form.pl2_con|add_class:"form-control" }}
+          </div>
+  
+          <div class="form-group">
+              <label for="id_pl2_con_mass">{{ form.pl2_con_mass.label }}</label>
+              {{ form.pl2_con_mass|add_class:"form-control" }}
+          </div>
+  
+          <div class="form-group">
+              <label for="id_pl2_wet_mass">{{ form.pl2_wet_mass.label }}</label>
+              {{ form.pl2_wet_mass|add_class:"form-control" }}
+          </div>
+  
+          <div class="form-group">
+              <label for="id_pl2_dry1_mass">{{ form.pl2_dry1_mass.label }}</label>
+              {{ form.pl2_dry1_mass|add_class:"form-control" }}
+          </div>
+  
+          <div class="form-group">
+              <label for="id_pl2_dry2_mass">{{ form.pl2_dry2_mass.label }}</label>
+              {{ form.pl2_dry2_mass|add_class:"form-control" }}
+          </div>
+  
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tab-pane fade" id="pills-liquid" role="tabpanel" aria-labelledby="pills-liquid-tab">
+
+    <ul class="nav nav-tabs my-3" id="llTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="ll1-tab" data-toggle="tab" href="#ll1" role="tab" aria-controls="home" aria-selected="true">LL1</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="ll2-tab" data-toggle="tab" href="#ll2" role="tab" aria-controls="profile" aria-selected="false">LL2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="ll3-tab" data-toggle="tab" href="#ll3" role="tab" aria-controls="home" aria-selected="true">LL3</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="ll4-tab" data-toggle="tab" href="#ll4" role="tab" aria-controls="profile" aria-selected="false">LL4</a>
+          </li>
+      </ul>
+      <div class="tab-content" id="llTabContent">
+        <div class="tab-pane fade show active" id="ll1" role="tabpanel" aria-labelledby="ll1-tab">
+            <div class="form-group">
+                <label for="id_ll1_pene_1">{{ form.ll1_pene_1.label }}</label>
+                {{ form.ll1_pene_1|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_pene_2">{{ form.ll1_pene_2.label }}</label>
+                {{ form.ll1_pene_2|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_pene_3">{{ form.ll1_pene_3.label }}</label>
+                {{ form.ll1_pene_3|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_con">{{ form.ll1_con.label }}</label>
+                {{ form.ll1_con|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_con_mass">{{ form.ll1_con_mass.label }}</label>
+                {{ form.ll1_con_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_wet_mass">{{ form.ll1_wet_mass.label }}</label>
+                {{ form.ll1_wet_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_dry1_mass">{{ form.ll1_dry1_mass.label }}</label>
+                {{ form.ll1_dry1_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll1_dry2_mass">{{ form.ll1_dry2_mass.label }}</label>
+                {{ form.ll1_dry2_mass|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ll2" role="tabpanel" aria-labelledby="ll2-tab">
+            <div class="form-group">
+                <label for="id_ll2_pene_1">{{ form.ll2_pene_1.label }}</label>
+                {{ form.ll2_pene_1|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_pene_2">{{ form.ll2_pene_2.label }}</label>
+                {{ form.ll2_pene_2|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_pene_3">{{ form.ll2_pene_3.label }}</label>
+                {{ form.ll2_pene_3|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_con">{{ form.ll2_con.label }}</label>
+                {{ form.ll2_con|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_con_mass">{{ form.ll2_con_mass.label }}</label>
+                {{ form.ll2_con_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_wet_mass">{{ form.ll2_wet_mass.label }}</label>
+                {{ form.ll2_wet_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_dry1_mass">{{ form.ll2_dry1_mass.label }}</label>
+                {{ form.ll2_dry1_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll2_dry2_mass">{{ form.ll2_dry2_mass.label }}</label>
+                {{ form.ll2_dry2_mass|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="tab-pane fade show active" id="ll3" role="tabpanel" aria-labelledby="ll3-tab">
+            <div class="form-group">
+                <label for="id_ll3_pene_1">{{ form.ll3_pene_1.label }}</label>
+                {{ form.ll3_pene_1|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_pene_2">{{ form.ll3_pene_2.label }}</label>
+                {{ form.ll3_pene_2|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_pene_3">{{ form.ll3_pene_3.label }}</label>
+                {{ form.ll3_pene_3|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_con">{{ form.ll3_con.label }}</label>
+                {{ form.ll3_con|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_con_mass">{{ form.ll3_con_mass.label }}</label>
+                {{ form.ll3_con_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_wet_mass">{{ form.ll3_wet_mass.label }}</label>
+                {{ form.ll3_wet_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_dry1_mass">{{ form.ll3_dry1_mass.label }}</label>
+                {{ form.ll3_dry1_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll3_dry2_mass">{{ form.ll3_dry2_mass.label }}</label>
+                {{ form.ll3_dry2_mass|add_class:"form-control" }}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="ll4" role="tabpanel" aria-labelledby="ll4-tab">
+            <div class="form-group">
+                <label for="id_ll4_pene_1">{{ form.ll4_pene_1.label }}</label>
+                {{ form.ll4_pene_1|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_pene_2">{{ form.ll4_pene_2.label }}</label>
+                {{ form.ll4_pene_2|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_pene_3">{{ form.ll4_pene_3.label }}</label>
+                {{ form.ll4_pene_3|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_con">{{ form.ll4_con.label }}</label>
+                {{ form.ll4_con|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_con_mass">{{ form.ll4_con_mass.label }}</label>
+                {{ form.ll4_con_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_wet_mass">{{ form.ll4_wet_mass.label }}</label>
+                {{ form.ll4_wet_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_dry1_mass">{{ form.ll4_dry1_mass.label }}</label>
+                {{ form.ll4_dry1_mass|add_class:"form-control" }}
+            </div>
+    
+            <div class="form-group">
+                <label for="id_ll4_dry2_mass">{{ form.ll4_dry2_mass.label }}</label>
+                {{ form.ll4_dry2_mass|add_class:"form-control" }}
+            </div>
+        </div>
+      </div>
+
+  </div>
+
+</div>
+</form>
 {% endblock %}
