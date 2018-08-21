@@ -10,7 +10,7 @@ from atterberg.models import AttModel
 class AtterbergForm(forms.ModelForm):
     class Meta:
         model = AttModel
-        fields = ('identifier', 'att_method', 'check_cal', 'check_tip', 'check_vis', 'balance', 'preparation_method', 'oven', 'oven_temp', 'sieve_total', 'sieve_retained',
+        fields = ('identifier', 'technician', 'att_method', 'check_cal', 'check_tip', 'check_vis', 'balance', 'preparation_method', 'oven', 'oven_temp', 'sieve_total', 'sieve_retained',
         'pl1_con', 'pl1_con_mass', 'pl1_wet_mass', 'pl1_dry1_mass', 'pl1_dry2_mass',
         'pl2_con', 'pl2_con_mass', 'pl2_wet_mass', 'pl2_dry1_mass', 'pl2_dry2_mass',
         'll1_pene_1', 'll1_pene_2', 'll1_pene_3', 'll1_con', 'll1_con_mass', 'll1_wet_mass', 'll1_dry1_mass', 'll1_dry2_mass',

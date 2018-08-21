@@ -3,8 +3,9 @@
 {% load widget_tweaks %} 
 
 {% block content %}
-<form method="post" novalidate>
+<form method="post">
 {% csrf_token %}
+<button type="submit" class="btn btn-info my-3"><i class="fas fa-save"></i> Save Test</button>
 <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="pills-setup-tab" data-toggle="pill" href="#pills-setup" role="tab" aria-controls="pills-setup"
@@ -31,6 +32,12 @@
       {{ form.identifier|add_class:"form-control"|attr:"placeholder:Enter test identifier..." }}
       <small class="form-text text-muted">Project ID, Hole ID and depth will be used to generate the xml filename.</small>
     </div>
+
+    <div class="form-group">
+        <label for="id_technician">{{ form.technician.label }}</label>
+        {{ form.technician|add_class:"form-control"|attr:"placeholder:Enter your name..." }}
+        <small class="form-text text-muted">Initials or full name, whatever is sufficient to identify exactly who carried out the test.</small>
+      </div>
 
     <div class="form-group">
       <label for="id_att_method">{{ form.att_method.label }}</label>
@@ -164,16 +171,16 @@
 
     <ul class="nav nav-tabs my-3" id="llTab" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" id="ll1-tab" data-toggle="tab" href="#ll1" role="tab" aria-controls="home" aria-selected="true">LL1</a>
+          <a class="nav-link active" id="ll1-tab" data-toggle="tab" href="#ll1" role="tab" aria-controls="ll1" aria-selected="true">LL1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" id="ll2-tab" data-toggle="tab" href="#ll2" role="tab" aria-controls="profile" aria-selected="false">LL2</a>
+          <a class="nav-link" id="ll2-tab" data-toggle="tab" href="#ll2" role="tab" aria-controls="ll2" aria-selected="false">LL2</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="ll3-tab" data-toggle="tab" href="#ll3" role="tab" aria-controls="home" aria-selected="true">LL3</a>
+            <a class="nav-link" id="ll3-tab" data-toggle="tab" href="#ll3" role="tab" aria-controls="ll3" aria-selected="false">LL3</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="ll4-tab" data-toggle="tab" href="#ll4" role="tab" aria-controls="profile" aria-selected="false">LL4</a>
+            <a class="nav-link" id="ll4-tab" data-toggle="tab" href="#ll4" role="tab" aria-controls="ll4" aria-selected="false">LL4</a>
           </li>
       </ul>
       <div class="tab-content" id="llTabContent">
@@ -259,7 +266,7 @@
                 {{ form.ll2_dry2_mass|add_class:"form-control" }}
             </div>
         </div>
-        <div class="tab-pane fade show active" id="ll3" role="tabpanel" aria-labelledby="ll3-tab">
+        <div class="tab-pane fade" id="ll3" role="tabpanel" aria-labelledby="ll3-tab">
             <div class="form-group">
                 <label for="id_ll3_pene_1">{{ form.ll3_pene_1.label }}</label>
                 {{ form.ll3_pene_1|add_class:"form-control" }}
@@ -301,6 +308,7 @@
             </div>
         </div>
         <div class="tab-pane fade" id="ll4" role="tabpanel" aria-labelledby="ll4-tab">
+
             <div class="form-group">
                 <label for="id_ll4_pene_1">{{ form.ll4_pene_1.label }}</label>
                 {{ form.ll4_pene_1|add_class:"form-control" }}
