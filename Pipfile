@@ -10,6 +10,7 @@ django-crispy-forms = "*"
 lxml = "*"
 django-widget-tweaks = "*"
 django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 "autopep8" = "*"
