@@ -14,4 +14,3 @@ class Project(models.Model):
     project_id = models.CharField(max_length=7)
     project_name = models.CharField(max_length=128)
     engineer_name = models.ForeignKey('lab.Engineer', on_delete=models.CASCADE, default=None)
-    atterberg_test = models.ForeignKey('atterberg.AttModel', on_delete=models.CASCADE, default=None) # Explicit reference to app.model
