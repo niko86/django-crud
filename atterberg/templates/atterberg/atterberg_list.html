@@ -9,7 +9,8 @@
             <th scope="col">#</th>
             <th scope="col">Test ID</th>
             <th scope="col">Date</th>
-            <th scope="col">Method</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
             <th scope="col"></th>
         </tr>
     </thead>
@@ -19,10 +20,12 @@
             <th scope="row">{{ forloop.counter }}</th>
             <td><a href="{% url 'atterberg:atterberg-edit' atterberg.id %}">{{ atterberg.identifier }}</a></td>
             <td>{{ atterberg.test_date }}</td>
-            <td>{{ atterberg.get_preparation_method_display }}</td>
+            <td></td>
             <td>
                 <a href="{% url 'atterberg:atterberg-xml' atterberg.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i> XML</a>
-                <a href="{% url 'atterberg:atterberg-delete' atterberg.id %}" class="btn btn-danger btn-sm float-right" role="button"><i class="fas fa-trash-alt"></i> Delete</a>
+            </td>
+            <td>
+                <a href="{% url 'atterberg:atterberg-delete' atterberg.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i> Delete</a>
             </td>
         </tr>
         {% endfor %}
