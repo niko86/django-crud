@@ -3,7 +3,7 @@
 {% load widget_tweaks %} 
 
 {% block content %}
-<form method="post">
+<form method="post" autocomplete="off">
 {% csrf_token %}
 <button type="submit" class="btn btn-info my-3"><i class="fas fa-save"></i> Save Test</button>
 <ul class="nav nav-pills my-3" id="pills-tab" role="tablist">
