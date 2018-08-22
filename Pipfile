@@ -12,6 +12,7 @@ gunicorn = "*"
 dj-database-url = "*"
 whitenoise = "*"
 twine = "*"
+"psycopg2-binary" = "*"
 
 [dev-packages]
 "autopep8" = "*"
