@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'lab',
     'atterberg',
-    'crispy_forms',
     'widget_tweaks',
 ]
 
