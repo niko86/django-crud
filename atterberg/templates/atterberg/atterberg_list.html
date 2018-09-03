@@ -1,7 +1,7 @@
 {% extends "base.html" %} 
 {% block content %}
 <div class="row p-3">
-    <a href="{% url 'atterberg:atterberg-add'%}" class="btn btn-primary" role="button">Add Test</a>
+    <a href="{% url 'atterberg:add'%}" class="btn btn-primary" role="button">Add Test</a>
 </div>
 <table class="table table-striped">
     <thead>
@@ -18,14 +18,14 @@
         {% for atterberg in atterbergs %}
         <tr>
             <th scope="row">{{ forloop.counter }}</th>
-            <td><a href="{% url 'atterberg:atterberg-edit' atterberg.id %}">{{ atterberg.identifier }}</a></td>
+            <td><a href="{% url 'atterberg:edit' atterberg.id %}">{{ atterberg.project_id }} {{ atterberg.hole_id }} {{ atterberg.depth_top }}</a></td>
             <td>{{ atterberg.test_date }}</td>
             <td></td>
             <td>
-                <a href="{% url 'atterberg:atterberg-xml' atterberg.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i> XML</a>
+                <a href="{% url 'atterberg:download_xml' atterberg.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i> XML</a>
             </td>
             <td>
-                <a href="{% url 'atterberg:atterberg-delete' atterberg.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i> Delete</a>
+                <a href="{% url 'atterberg:delete' atterberg.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i> Delete</a>
             </td>
         </tr>
         {% endfor %}

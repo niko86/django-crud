@@ -49,7 +49,10 @@ class AttModel(models.Model):
     # Model fields
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    identifier = models.CharField(verbose_name='Test identifier', max_length=64)
+    project_id = models.CharField(verbose_name='Project number', max_length=8)
+    hole_id = models.CharField(verbose_name='Hole number', max_length=8)
+    depth_top = models.DecimalField(verbose_name='Top depth (m)', max_digits=6, decimal_places=2, blank=True, null=True)
+    sample_type = models.CharField(verbose_name='Sample type', max_length=4)
     technician = models.CharField(verbose_name='Technician name', max_length=32)
     att_method = models.CharField(verbose_name='Test method', max_length=3, choices=ATT_METHOD_CHOICES, default=ATT4P)
     check_cal = models.BooleanField(verbose_name='Equipment calibrations checked', blank=False, default=False)
@@ -109,7 +112,7 @@ class AttModel(models.Model):
     # Methods
 
     @staticmethod
-    def generate_xml(att_test):
+    def generate_xml(att_test, pretty_print=True, utf=8, definitions=True):
         conversion = {"att_method": "1Pointor4Point", #
                       "check_cal": "AppCheckCal", #
                       "check_tip": "AppCheckTip", #
@@ -165,12 +168,13 @@ class AttModel(models.Model):
                      timestamp=datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%S"), 
                      xmlns="http://www.keynetix.com/XSD/KeyLAB/Export")
 
-        test_defs = etree.SubElement(root, "test-definitions")
-        test_def = etree.SubElement(test_defs, "test-definition", name="Atterberg 4 Point", code="ATT4P")
-        properties = etree.SubElement(test_def, "properties")
+        if definitions:
+            test_defs = etree.SubElement(root, "test-definitions")
+            test_def = etree.SubElement(test_defs, "test-definition", name="Atterberg 4 Point", code="ATT4P")
+            properties = etree.SubElement(test_def, "properties")
 
-        for key in conversion:
-            etree.SubElement(properties, "property", name=conversion[key], unit="")
+            for key in conversion:
+                etree.SubElement(properties, "property", name=conversion[key], unit="")
 
         project = etree.SubElement(root, "project", id="Unknown", name="Unknown")
         samples = etree.SubElement(project, "samples")
@@ -187,10 +191,10 @@ class AttModel(models.Model):
                 pass
             else:
                 if getattr(att_test, item) is None:
-                    value = ''
+                    value = ""
                 else:
                     value = str(getattr(att_test, item))
                 reading = etree.SubElement(readings, "reading")
-                measurement = etree.SubElement(reading, "measurement", name=conversion[item], value=value)
+                measurement = etree.SubElement(reading, "measurement", name=conversion[item], value=value) # remember to change back to reading
         
-        return etree.tostring(root, pretty_print=True, xml_declaration=True, encoding="utf-16")
+        return etree.tostring(root, pretty_print=pretty_print, xml_declaration=True, encoding=f"utf-{utf}").decode()
