@@ -197,4 +197,4 @@ class AttModel(models.Model):
                 reading = etree.SubElement(readings, "reading")
                 measurement = etree.SubElement(reading, "measurement", name=conversion[item], value=value) # remember to change back to reading
         
-        return etree.tostring(root, pretty_print=pretty_print, xml_declaration=True, encoding=f"utf-{utf}").decode()
+        return etree.tostring(root, pretty_print=pretty_print, xml_declaration=True, encoding=f"utf-{utf}")
