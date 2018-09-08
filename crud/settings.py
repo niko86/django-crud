@@ -27,9 +27,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '192.168.0.7',
     '127.0.0.1',
-    '192.168.12.32',
 ]
 
 
@@ -42,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'lab',
-    'atterberg',
+    'django_filters',
     'widget_tweaks',
+    'atterberg',
 ]
 
 MIDDLEWARE = [
@@ -128,9 +126,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Crispy Forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())

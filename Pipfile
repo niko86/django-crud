@@ -13,6 +13,7 @@ whitenoise = "*"
 twine = "*"
 "psycopg2-binary" = "*"
 django-widgets-improved = "*"
+django-filter = "*"
 
 [dev-packages]
 "autopep8" = "*"
