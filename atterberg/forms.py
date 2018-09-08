@@ -1,6 +1,6 @@
 from django import forms
 
-from atterberg.models import AttModel
+from .models import AttModel
 
 
 class AtterbergForm(forms.ModelForm):

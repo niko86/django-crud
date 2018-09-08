@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_filters',
     'widget_tweaks',
+    'core',
     'atterberg',
+    'moisture',
 ]
 
 MIDDLEWARE = [

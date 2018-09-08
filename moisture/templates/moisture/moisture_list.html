@@ -1,0 +1,13 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+{% include "moisture/includes/list/filter.html" %}
+
+<div class="row pb-3 px-3">
+    <a href="{% url 'moisture:add'%}" class="btn btn-success" role="button"><i class="fas fa-plus"></i> New Test</a>
+</div>
+
+{% include "moisture/includes/list/table.html" %}
+
+{% endblock content %}

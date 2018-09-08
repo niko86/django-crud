@@ -1,0 +1,15 @@
+{% load widget_tweaks %} 
+
+<div class="tab-pane fade" id="pills-sieving" role="tabpanel" aria-labelledby="pills-sieving-tab">
+
+    <div class="form-group">
+        <label for="id_sieve_total">{{ form.sieve_total.label }}</label>
+        {{ form.sieve_total|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_sieve_retained">{{ form.sieve_retained.label }}</label>
+        {{ form.sieve_retained|add_class:"form-control" }}
+    </div>
+
+</div>

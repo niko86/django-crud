@@ -13,19 +13,19 @@ class AtterbergCreate(CreateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('atterberg:list')
+    success_url = reverse_lazy('atterberg:att_list')
 
 
 class AtterbergUpdate(UpdateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('atterberg:list')
+    success_url = reverse_lazy('atterberg:att_list')
 
 
 class AtterbergDelete(DeleteView):
     model = AttModel
-    success_url = reverse_lazy('atterberg:list')
+    success_url = reverse_lazy('atterberg:att_list')
 
     def get(self, request, *args, **kwargs):
         """Lets me delete without going to a POST confirm page"""

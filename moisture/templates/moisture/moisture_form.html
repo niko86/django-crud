@@ -16,7 +16,7 @@
 
     <div>
         <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Save Test</button>
-        <a href="{% url 'atterberg:att_list' %}" class="btn btn-danger mt-3" role="button"><i class="fas fa-times"></i> Cancel</a>
+        <a href="{% url 'moisture:mc_list' %}" class="btn btn-danger mt-3" role="button"><i class="fas fa-times"></i> Cancel</a>
     </div>
 
     <hr>
@@ -43,10 +43,10 @@
     <hr>
 
     <div class="tab-content" id="pills-tabContent">
-        {% include "atterberg/includes/form/tab-setup.html" %} 
-        {% include "atterberg/includes/form/tab-sieving.html" %} 
-        {% include "atterberg/includes/form/tab-plastic.html" %} 
-        {% include "atterberg/includes/form/tab-liquid.html" %}
+        {% include "moisture/includes/form/tab-setup.html" %} 
+        {% include "moisture/includes/form/tab-sieving.html" %} 
+        {% include "moisture/includes/form/tab-plastic.html" %} 
+        {% include "moisture/includes/form/tab-liquid.html" %}
     </div>
 
 </form>

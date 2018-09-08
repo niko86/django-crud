@@ -1,0 +1,32 @@
+{% load widget_tweaks %} 
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Project ID</th>
+            <th scope="col">Hole ID</th>
+            <th scope="col">Top Depth (m)</th>
+            <th class="d-none d-sm-table-cell" scope="col">Test Date</th>
+            <th class="d-none d-sm-table-cell" scope="col"></th>
+            <th class="d-none d-sm-table-cell" scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for moisture in filter.qs %}
+        <tr>
+            <td><a href="{% url 'moisture:edit' moisture.id %}">{{ moisture.project_id }}</a></td>
+            <td>{{ moisture.hole_id }}</td>
+            <td>{{ moisture.depth_top }}</td>
+            <td class="d-none d-sm-table-cell">{{ moisture.test_date }}</td>
+            <td class="d-none d-sm-table-cell">
+                <a href="{% url 'moisture:download_xml' moisture.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i>
+                    XML</a>
+            </td>
+            <td class="d-none d-sm-table-cell">
+                <a href="{% url 'moisture:delete' moisture.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i>
+                    Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
