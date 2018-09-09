@@ -6,8 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link {% if request.resolver_match.url_name == 'mc_list' %}active{% endif %}" href="{% url 'moisture:mc_list' %}">Moisture Tests</a>
-            <a class="nav-item nav-link {% if request.resolver_match.url_name == 'att_list' %}active{% endif %}" href="{% url 'atterberg:att_list' %}">Atterberg Tests</a>
+            <a class="nav-item nav-link {% if request.resolver_match.namespace == 'moisture' %} active {% endif %}" href="{% url 'moisture:list' %}">Moisture Tests</a>
+            <a class="nav-item nav-link {% if request.resolver_match.namespace == 'atterberg' %} active {% endif %}" href="{% url 'atterberg:list' %}">Atterberg Tests</a>
         </div>
     </div>
 </nav>

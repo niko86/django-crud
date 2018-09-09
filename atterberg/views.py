@@ -13,14 +13,14 @@ class AtterbergCreate(CreateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('atterberg:att_list')
+    success_url = reverse_lazy('lab:list')
 
 
 class AtterbergUpdate(UpdateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('atterberg:att_list')
+    success_url = reverse_lazy('lab:list')
 
 
 class AtterbergDelete(DeleteView):
@@ -35,7 +35,7 @@ class AtterbergDelete(DeleteView):
 def att_list(request):
     att_list = AttModel.objects.all()
     att_filter = AttFilter(request.GET, queryset=att_list)
-    return render(request, 'atterberg/atterberg_list.html', context={'atterbergs': att_list, 'filter': att_filter})
+    return render(request, 'list.html', context={'atterbergs': att_list, 'filter': att_filter})
 
 
 def download_xml(request, pk):

@@ -2,10 +2,10 @@ from django.urls import path
 
 from . import views
 
-app_name = 'atterberg'
+app_name = 'lab'
 
 urlpatterns = [
-    path('', views.att_list, name='att_list'),
+    path('', views.att_list, name='list'),
     path('add/', views.AtterbergCreate.as_view(), name='add'),
     path('<uuid:pk>/xml', views.download_xml, name='download_xml'),
     path('<uuid:pk>/edit/',views.AtterbergUpdate.as_view(), name='edit'),

@@ -2,10 +2,10 @@ from django.urls import path
 
 from . import views
 
-app_name = 'moisture'
+app_name = 'lab'
 
 urlpatterns = [
-    path('', views.moisture_list, name='mc_list'),
+    path('', views.moisture_list, name='list'),
     path('add/', views.MoistureCreate.as_view(), name='add'),
     path('<uuid:pk>/xml', views.download_xml, name='download_xml'),
     path('<uuid:pk>/edit/',views.MoistureUpdate.as_view(), name='edit'),
