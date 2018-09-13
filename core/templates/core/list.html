@@ -1,5 +1,9 @@
 {% extends "core/base.html" %} 
 
+{% block title %}
+{{ request.resolver_match.namespace|capfirst }} List
+{% endblock title %}
+
 {% block content %}
 
 {% include "core/includes/filter.html" %}
