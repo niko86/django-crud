@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import AbstractUser
 
 class ProjectModel(models.Model):
     project_id = models.CharField(unique=True, verbose_name='Project number', max_length=8)
