@@ -8,7 +8,7 @@ app_name = 'core'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    re_path(r'^favicon.ico$', RedirectView.as_view(url='/staticfiles/favicon/favicon.ico')),
+    re_path(r'^favicon.png$', RedirectView.as_view(url='/static/favicon/favicon.png')),
     path('login/', views.LoginFormView.as_view(), name='login'),
     path('logout/', views.LogoutFormView.as_view(), name='logout'),
 ]
