@@ -1,0 +1,13 @@
+{% extends "core/base.html" %} 
+
+{% block content %}
+
+{% include "core/includes/filter.html" %}
+
+<div class="row pb-3 px-3">
+    <a href="{% url 'lab:add' %}" class="btn btn-success" role="button"><i class="fas fa-plus"></i> New {{ request.resolver_match.namespace|capfirst }}</a>
+</div>
+
+{% include "core/includes/table.html" %} 
+
+{% endblock content %}

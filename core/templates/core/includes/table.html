@@ -12,18 +12,18 @@
         </tr>
     </thead>
     <tbody>
-        {% for moisture in filter.qs %}
+        {% for test in filter.qs %}
         <tr>
-            <td><a href="{% url 'moisture:edit' moisture.id %}">{{ moisture.project_id }}</a></td>
-            <td>{{ moisture.hole_id }}</td>
-            <td>{{ moisture.depth_top }}</td>
-            <td class="d-none d-sm-table-cell">{{ moisture.test_date }}</td>
+            <td><a href="{% url 'lab:edit' test.id %}">{{ test.project_id }}</a></td>
+            <td>{{ test.hole_id }}</td>
+            <td>{{ test.depth_top }}</td>
+            <td class="d-none d-sm-table-cell">{{ test.test_date }}</td>
             <td class="d-none d-sm-table-cell">
-                <a href="{% url 'moisture:download_xml' moisture.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i>
+                <a href="{% url 'lab:download_xml' test.id %}" class="btn btn-info btn-sm" role="button"><i class="fas fa-cloud-download-alt"></i>
                     XML</a>
             </td>
             <td class="d-none d-sm-table-cell">
-                <a href="{% url 'moisture:delete' moisture.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i>
+                <a href="{% url 'lab:delete' test.id %}" class="btn btn-danger btn-sm" role="button"><i class="fas fa-trash-alt"></i>
                     Delete</a>
             </td>
         </tr>

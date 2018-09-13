@@ -13,19 +13,19 @@ class MoistureCreate(CreateView):
     model = MoistureModel
     form_class = MoistureForm
     template_name = 'moisture/moisture_form.html'
-    success_url = reverse_lazy('moisture:mc_list')
+    success_url = reverse_lazy('moisture:list') ## Change all to explicit moisture only use lab:page for templates
 
 
 class MoistureUpdate(UpdateView):
     model = MoistureModel
     form_class = MoistureForm
     template_name = 'moisture/moisture_form.html'
-    success_url = reverse_lazy('moisture:mc_list')
+    success_url = reverse_lazy('moisture:list')
 
 
 class MoistureDelete(DeleteView):
     model = MoistureModel
-    success_url = reverse_lazy('moisture:mc_list')
+    success_url = reverse_lazy('moisture:list')
 
     def get(self, request, *args, **kwargs):
         """Lets me delete without going to a POST confirm page"""
@@ -35,7 +35,7 @@ class MoistureDelete(DeleteView):
 def moisture_list(request):
     moisture_list = MoistureModel.objects.all()
     moisture_filter = MoistureFilter(request.GET, queryset=moisture_list)
-    return render(request, 'moisture/moisture_list.html', context={'moistures': moisture_list, 'filter': moisture_filter})
+    return render(request, 'core/list.html', context={'filter': moisture_filter}) # list.html in project level template folder
 
 
 def download_xml(request, pk):

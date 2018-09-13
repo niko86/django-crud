@@ -12,13 +12,10 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import django_heroku
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY')
@@ -29,7 +26,6 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
-
 
 # Application definition
 
@@ -129,5 +125,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# Default redirect from login
+LOGIN_URL = 'core:login'
+LOGIN_REDIRECT_URL = 'core:index'
+LOGOUT_REDIRECT_URL = 'core:index'
+
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Messaging related
+MESSAGE_TAGS = {
+    messages.DEBUG: 'alert-info',
+    messages.INFO: 'alert-info',
+    messages.SUCCESS: 'alert-success',
+    messages.WARNING: 'alert-warning',
+    messages.ERROR: 'alert-danger',
+}

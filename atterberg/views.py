@@ -1,43 +1,56 @@
+from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse_lazy
 from django.views import View
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
-from django.urls import reverse_lazy
 
-from .models import AttModel
-from .forms import AtterbergForm
 from .filters import AttFilter
+from .forms import AtterbergForm
+from .models import AttModel
 
 
-class AtterbergCreate(CreateView):
+class AtterbergCreate(LoginRequiredMixin, CreateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('lab:list')
+    success_url = reverse_lazy('atterberg:list')
+    # LoginRequiredMixin
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
 
 
-class AtterbergUpdate(UpdateView):
+class AtterbergUpdate(LoginRequiredMixin, UpdateView):
     model = AttModel
     form_class = AtterbergForm
     template_name = 'atterberg/atterberg_form.html'
-    success_url = reverse_lazy('lab:list')
+    success_url = reverse_lazy('atterberg:list')
+    # LoginRequiredMixin
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
 
 
-class AtterbergDelete(DeleteView):
+class AtterbergDelete(LoginRequiredMixin, DeleteView):
     model = AttModel
-    success_url = reverse_lazy('atterberg:att_list')
+    success_url = reverse_lazy('atterberg:list')
+    # LoginRequiredMixin
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
 
     def get(self, request, *args, **kwargs):
         """Lets me delete without going to a POST confirm page"""
         return self.post(request, *args, **kwargs)
 
 
+@login_required
 def att_list(request):
     att_list = AttModel.objects.all()
     att_filter = AttFilter(request.GET, queryset=att_list)
-    return render(request, 'list.html', context={'atterbergs': att_list, 'filter': att_filter})
+    return render(request, 'core/list.html', context={'filter': att_filter})
 
 
+@login_required
 def download_xml(request, pk):
     att_test = get_object_or_404(AttModel, pk=pk)
     xml_data = AttModel.generate_xml(
@@ -47,6 +60,7 @@ def download_xml(request, pk):
     return response
 
 
+@login_required
 def excel_xml(request):
     if request.method == "GET":
         r = request.GET
