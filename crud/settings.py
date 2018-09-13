@@ -130,9 +130,6 @@ LOGIN_URL = 'core:login'
 LOGIN_REDIRECT_URL = 'core:index'
 LOGOUT_REDIRECT_URL = 'core:index'
 
-# Configure Django App for Heroku.
-django_heroku.settings(locals())
-
 # Messaging related
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
@@ -141,3 +138,6 @@ MESSAGE_TAGS = {
     messages.WARNING: 'alert-warning',
     messages.ERROR: 'alert-danger',
 }
+
+# Configure Django App for Heroku.
+django_heroku.settings(locals())
