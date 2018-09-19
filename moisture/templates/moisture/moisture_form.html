@@ -21,7 +21,7 @@ Moisture Form
 
     <div>
         <button type="submit" class="btn btn-success mt-3"><i class="fas fa-save"></i> Save Test</button>
-        <a href="{% url 'moisture:mc_list' %}" class="btn btn-danger mt-3" role="button"><i class="fas fa-times"></i> Cancel</a>
+        <a href="{% url 'moisture:list' %}" class="btn btn-danger mt-3" role="button"><i class="fas fa-times"></i> Cancel</a>
     </div>
 
     <hr>
@@ -32,16 +32,8 @@ Moisture Form
                 aria-selected="true">Setup</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="pills-sieving-tab" data-toggle="pill" href="#pills-sieving" role="tab" aria-controls="pills-sieving"
-                aria-selected="false">Sieving</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-plastic-tab" data-toggle="pill" href="#pills-plastic" role="tab" aria-controls="pills-plastic"
-                aria-selected="false">Plastic Limit</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" id="pills-liquid-tab" data-toggle="pill" href="#pills-liquid" role="tab" aria-controls="pills-liquid"
-                aria-selected="false">Liquid Limit</a>
+            <a class="nav-link" id="pills-moisture-tab" data-toggle="pill" href="#pills-moisture" role="tab" aria-controls="pills-moisture"
+                aria-selected="false">Moisture Test</a>
         </li>
     </ul>
 
@@ -49,9 +41,7 @@ Moisture Form
 
     <div class="tab-content" id="pills-tabContent">
         {% include "moisture/includes/form/tab-setup.html" %} 
-        {% include "moisture/includes/form/tab-sieving.html" %} 
-        {% include "moisture/includes/form/tab-plastic.html" %} 
-        {% include "moisture/includes/form/tab-liquid.html" %}
+        {% include "moisture/includes/form/tab-moisture.html" %} 
     </div>
 
 </form>

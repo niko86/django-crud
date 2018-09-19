@@ -29,28 +29,12 @@
     <div class="form-group">
         <label for="id_technician">{{ form.technician.label }}</label>
         {{ form.technician|add_class:"form-control"|attr:"placeholder:Enter your name..." }}
-        <small class="form-text text-muted">Initials or full name, whatever is sufficient to identify exactly who carried
-            out the test.</small>
+        <small class="form-text text-muted">Initials or full name, whatever is sufficient to identify exactly who carried out the test.</small>
     </div>
 
     <div class="form-group">
-        <label for="id_att_method">{{ form.att_method.label }}</label>
-        {{ form.att_method|add_class:"form-control" }}
-    </div>
-
-    <div class="form-group">
-        <div class="form-check form-check-inline">
-            {{ form.check_cal|add_class:"form-check-input" }}
-            <label class="form-check-label" for="id_check_cal">{{ form.check_cal.label }}</label>
-        </div>
-        <div class="form-check form-check-inline">
-            {{ form.check_tip|add_class:"form-check-input" }}
-            <label class="form-check-label" for="id_check_tip">{{ form.check_tip.label }}</label>
-        </div>
-        <div class="form-check form-check-inline">
-            {{ form.check_vis|add_class:"form-check-input" }}
-            <label class="form-check-label" for="id_check_vis">{{ form.check_vis.label }}</label>
-        </div>
+        <label for="id_mc_method">{{ form.mc_method.label }}</label>
+        {{ form.mc_method|add_class:"form-control" }}
     </div>
 
     <div class="form-group">
@@ -66,11 +50,6 @@
     <div class="form-group">
         <label for="id_oven_temp">{{ form.oven_temp.label }}</label>
         {{ form.oven_temp|add_class:"form-control" }}
-    </div>
-
-    <div class="form-group">
-        <label for="id_preparation_method">{{ form.preparation_method.label }}</label>
-        {{ form.preparation_method|add_class:"form-control" }}
     </div>
 
 </div>
