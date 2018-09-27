@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('atterberg/', include('atterberg.urls', namespace='atterberg')),
     path('moisture/', include('moisture.urls', namespace='moisture')),
+    path('psd/', include('psd.urls', namespace='psd')),
 ]

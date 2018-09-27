@@ -1,0 +1,46 @@
+{% load widget_tweaks %} 
+
+<div class="tab-pane fade" id="pills-specimen" role="tabpanel" aria-labelledby="pills-specimen-tab">
+
+    <div class="form-group">
+        <label for="id_container_id">{{ form.container_id.label }}</label>
+        {{ form.container_id|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_container_mass">{{ form.container_mass.label }}</label>
+        {{ form.container_mass|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_initial_wet_mass">{{ form.initial_wet_mass.label }}</label>
+        {{ form.initial_wet_mass|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_initial_dry_mass">{{ form.initial_dry_mass.label }}</label>
+        {{ form.initial_dry_mass|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <label for="id_accepted_dry_mass">{{ form.accepted_dry_mass.label }}</label>
+        {{ form.accepted_dry_mass|add_class:"form-control" }}
+    </div>
+    
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            {{ form.natural_condition|add_class:"form-check-input" }}
+            <label class="form-check-label" for="id_natural_condition">{{ form.natural_condition.label }}</label>
+        </div>
+        <div class="form-check form-check-inline">
+            {{ form.dried_condition|add_class:"form-check-input" }}
+            <label class="form-check-label" for="id_dried_condition">{{ form.dried_condition.label }}</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+            <label for="id_description">{{ form.description.label }}</label>
+            {{ form.description|attr:"rows:3"|add_class:"form-control" }}
+    </div>
+
+</div>

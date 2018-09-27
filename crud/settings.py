@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core',
     'atterberg',
     'moisture',
+    'psd',
 ]
 
 MIDDLEWARE = [

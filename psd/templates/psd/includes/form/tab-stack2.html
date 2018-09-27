@@ -1,0 +1,35 @@
+{% load widget_tweaks %} 
+
+<div class="tab-pane fade" id="pills-stack2" role="tabpanel" aria-labelledby="pills-stack2-tab">
+    
+    <div class="form-group">
+            <label for="id_mass_14mm">{{ form.mass_14mm.label }}</label>
+            {{ form.mass_14mm|add_class:"form-control" }}
+    </div>
+    
+    <div class="form-group">
+            <label for="id_mass_10mm">{{ form.mass_10mm.label }}</label>
+            {{ form.mass_10mm|add_class:"form-control" }}
+    </div>
+    
+    <div class="form-group">
+            <label for="mass_6p3mm">{{ form.mass_6p3mm.label }}</label>
+            {{ form.mass_6p3mm|add_class:"form-control" }}
+    </div> 
+        
+    <div class="form-group">
+            <label for="id_mass_below_6p3mm">{{ form.mass_below_6p3mm.label }}</label>
+            {{ form.mass_below_6p3mm|add_class:"form-control" }}
+    </div> 
+        
+    <div class="form-group">
+            <label for="id_sum_stack_2">{{ form.sum_stack_2.label }}</label>
+            {{ form.sum_stack_2|add_class:"form-control" }}
+    </div> 
+        
+    <div class="form-group">
+            <label for="id_riffle_mass_below_6p3mm">{{ form.riffle_mass_below_6p3mm.label }}</label>
+            {{ form.riffle_mass_below_6p3mm|add_class:"form-control" }}
+    </div>  
+
+</div>

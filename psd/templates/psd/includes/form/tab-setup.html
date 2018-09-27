@@ -1,0 +1,52 @@
+{% load widget_tweaks %} 
+
+<div class="tab-pane fade show active" id="pills-setup" role="tabpanel" aria-labelledby="pills-setup-tab">
+
+    <div class="form-group">
+        <label for="id_project_id">{{ form.project_id.label }}</label>
+        {{ form.project_id|add_class:"form-control"|attr:"placeholder:Enter project number..." }}
+        <small class="form-text text-muted">Make sure this is entered correctly.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="id_hole_id">{{ form.hole_id.label }}</label>
+        {{ form.hole_id|add_class:"form-control"|attr:"placeholder:Enter hole number..." }}
+        <small class="form-text text-muted">Make sure this is entered correctly.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="id_depth_top">{{ form.depth_top.label }}</label>
+        {{ form.depth_top|add_class:"form-control"|attr:"placeholder:Enter top depth..." }}
+        <small class="form-text text-muted">Make sure this is entered correctly.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="id_sample_type">{{ form.sample_type.label }}</label>
+        {{ form.sample_type|add_class:"form-control"|attr:"placeholder:Enter sample type..." }}
+        <small class="form-text text-muted">Make sure this is entered correctly.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="id_technician">{{ form.technician.label }}</label>
+        {{ form.technician|add_class:"form-control"|attr:"placeholder:Enter your name..." }}
+        <small class="form-text text-muted">Initials or full name, whatever is sufficient to identify exactly who carried
+            out the test.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="id_test_method">{{ form.test_method.label }}</label>
+        {{ form.test_method|add_class:"form-control" }}
+    </div>
+
+    <div class="form-group">
+        <div class="form-check form-check-inline">
+            {{ form.check_cal|add_class:"form-check-input" }}
+            <label class="form-check-label" for="id_check_cal">{{ form.check_cal.label }}</label>
+        </div>
+        <div class="form-check form-check-inline">
+            {{ form.check_vis|add_class:"form-check-input" }}
+            <label class="form-check-label" for="id_check_vis">{{ form.check_vis.label }}</label>
+        </div>
+    </div>
+
+</div>

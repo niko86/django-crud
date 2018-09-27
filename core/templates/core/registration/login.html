@@ -12,15 +12,15 @@ Login Form
 <hr>
 <form method="post" autocomplete="off">
   {% csrf_token %}
-  <div class="form-group col-4">
+  <div class="form-group col-md-4">
       <label for="id_username">{{ form.username.label }}</label>
       {{ form.username|add_class:"form-control" }}
   </div>
-  <div class="form-group col-4">
+  <div class="form-group col-md-4">
       <label for="id_password">{{ form.password.label }}</label>
       {{ form.password|add_class:"form-control" }}
   </div>
-  <div class="form-group col-4">
+  <div class="form-group col-md-4">
     <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Login</button>
   </div>
 </form>
