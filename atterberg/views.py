@@ -11,6 +11,7 @@ from .forms import AtterbergForm
 from .models import AttModel
 
 
+@login_required
 class AtterbergCreate(LoginRequiredMixin, CreateView):
     model = AttModel
     form_class = AtterbergForm
@@ -21,6 +22,7 @@ class AtterbergCreate(LoginRequiredMixin, CreateView):
     redirect_field_name = 'redirect_to'
 
 
+@login_required
 class AtterbergUpdate(LoginRequiredMixin, UpdateView):
     model = AttModel
     form_class = AtterbergForm
@@ -31,6 +33,7 @@ class AtterbergUpdate(LoginRequiredMixin, UpdateView):
     redirect_field_name = 'redirect_to'
 
 
+@login_required
 class AtterbergDelete(LoginRequiredMixin, DeleteView):
     model = AttModel
     success_url = reverse_lazy('atterberg:list')
@@ -60,7 +63,6 @@ def download_xml(request, pk):
     return response
 
 
-@login_required
 def excel_xml(request):
     if request.method == "GET":
         r = request.GET
